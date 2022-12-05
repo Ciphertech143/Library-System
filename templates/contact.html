@@ -1,5 +1,8 @@
  {%extends 'index.html'%}
-<body>
+
+ {% block title %}
+Student Information
+ {% endblock %}
 {%block content%}
   <!-- ======= Header ======= -->
   <header id="header" class="fixed-top">
@@ -10,12 +13,12 @@
        
       <nav id="navbar" class="navbar order-last order-lg-0">
         <ul>
-          <li><a href="index.html">Home</a></li>
-          <li><a href="about.html">About</a></li>
-          <li><a href="courses.html">Courses</a></li>
-          <li><a href="trainers.html">Trainers</a></li>
-          <li><a href="events.html">Events</a></li>
-          <li><a href="pricing.html">Pricing</a></li>
+          <li><a class="active" href="{% url 'index' %}">Home</a></li>
+          <li><a href="#">About</a></li>
+          <li><a href="{%url 'courses'%}">Courses</a></li>
+          <li><a href="{%url 'faculty' %}">Trainers</a></li>
+          <li><a href="{%url 'department'%}">Events</a></li>
+          <li><a href="{%url 'department'%}">Pricing</a></li>
 
           <li class="dropdown"><a href="#"><span>Drop Down</span> <i class="bi bi-chevron-down"></i></a>
             <ul>
@@ -45,7 +48,6 @@
   </header><!-- End Header -->
 
   <main id="main">
-
     <!-- ======= Breadcrumbs ======= -->
     <div class="breadcrumbs" data-aos="fade-in">
       <div class="container">
@@ -53,37 +55,73 @@
         <p>Est dolorum ut non facere possimus quibusdam eligendi voluptatem. Quia id aut similique quia voluptas sit quaerat debitis. Rerum omnis ipsam aperiam consequatur laboriosam nemo harum praesentium. </p>
       </div>
     </div><!-- End Breadcrumbs -->
+   
+    <h4 style="text-align: center;margin-top: 1em;"> NAMES OF GROUP MEMBERS FOR AN ONLINE LIBRARY SYSTEM</h4>
+     
+    <p>
+    <table style="width: 80%;margin:auto">
 
+      <tr>
+        <th>  <b>MEMBERS</b> </th>
+        <th> <b>REGISTRATION NUMBER</b> </th>
+        </tr> 
+        <td> Habib Yusuf </td> 
+        <td> CST/19/COM/00429</td>
+        </tr>         
+        <tr> 
+        <td> Ibrahim Ilyasu </td> 
+        <td> CST/18/COM/00121</td>
+        </tr>
+    
+        <tr> 
+        <td>Ja'afar Zakari Na'abba  </td> 
+        <td> CST/18/COM/00117</td>
+        </tr>
+        </tr> 
+        <td> Khalifa Ibrahim Yakub </td> 
+        <td> CST/18/COM/00051</td>
+        </tr>
+        </tr> 
+        <td> Golfa Babayo Gudel </td> 
+        <td> CST/18/COM/00042</td>
+        </tr>
+        </tr> 
+        <td> Umar Adam Isa </td> 
+        <td> CST/18/COM/00055</td>
+        </tr>
+
+      <tr> 
+      <td> Daniel Ayere</td> 
+      <td> CST/19/COM/00033</td>
+    </tr>
+    </table>
+    </p>
+  
     <!-- ======= Contact Section ======= -->
     <section id="contact" class="contact">
       <div data-aos="fade-up">
-        <iframe style="border:0; width: 100%; height: 350px;" src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d12097.433213460943!2d-74.0062269!3d40.7101282!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0xb89d1fe6bc499443!2sDowntown+Conference+Center!5e0!3m2!1smk!2sbg!4v1539943755621" frameborder="0" allowfullscreen></iframe>
-      </div>
+       </div>
 
       <div class="container" data-aos="fade-up">
 
+        
         <div class="row mt-5">
 
           <div class="col-lg-4">
             <div class="info">
               <div class="address">
                 <i class="bi bi-geo-alt"></i>
-                <h4>Location:</h4>
-                <p>A108 Adam Street, New York, NY 535022</p>
+                <h4>NAME:</h4>
+                
               </div>
 
               <div class="email">
                 <i class="bi bi-envelope"></i>
-                <h4>Email:</h4>
-                <p>info@example.com</p>
+                <h4>Registration Number:</h4>
+                 
               </div>
 
-              <div class="phone">
-                <i class="bi bi-phone"></i>
-                <h4>Call:</h4>
-                <p>+1 5589 55488 55s</p>
-              </div>
-
+               
             </div>
 
           </div>
@@ -93,24 +131,22 @@
             <form action="forms/contact.php" method="post" role="form" class="php-email-form">
               <div class="row">
                 <div class="col-md-6 form-group">
-                  <input type="text" name="name" class="form-control" id="name" placeholder="Your Name" required>
+                  <input type="text" name="firstName" class="form-control" id="name" placeholder="First Name" required>
                 </div>
                 <div class="col-md-6 form-group mt-3 mt-md-0">
-                  <input type="email" class="form-control" name="email" id="email" placeholder="Your Email" required>
+                  <input type="email" class="form-control" name="lastName" id="email" placeholder="Last Name" required>
                 </div>
               </div>
               <div class="form-group mt-3">
-                <input type="text" class="form-control" name="subject" id="subject" placeholder="Subject" required>
+                <input type="text" class="form-control" name="regNo" id="subject" placeholder="Registration Number" required>
               </div>
-              <div class="form-group mt-3">
-                <textarea class="form-control" name="message" rows="5" placeholder="Message" required></textarea>
-              </div>
+               
               <div class="my-3">
                 <div class="loading">Loading</div>
                 <div class="error-message"></div>
                 <div class="sent-message">Your message has been sent. Thank you!</div>
               </div>
-              <div class="text-center"><button type="submit">Send Message</button></div>
+              <div class="text-center"><button type="submit">Add Member</button></div>
             </form>
 
           </div>
